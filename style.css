@@ -1,0 +1,87 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0e6e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+#book {
+  width: 90%;
+  max-width: 600px;
+  height: 80vh;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+.page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#cover {
+  background-color: #ffb6c1;
+  color: white;
+}
+#cover h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+#timeline {
+  overflow-y: auto;
+  padding: 20px;
+  transform: translateX(100%);
+}
+.timeline-item {
+  margin-bottom: 30px;
+  border-left: 2px solid #ffb6c1;
+  padding-left: 20px;
+  position: relative;
+}
+.date {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #ffb6c1;
+}
+.content {
+  background-color: #fff0f5;
+  padding: 15px;
+  border-radius: 5px;
+}
+.nav-btn {
+  position: fixed;
+  top: 50%;
+  background-color: #ffb6c1;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 18px;
+}
+#prevBtn {
+  left: 10px;
+}
+#nextBtn {
+  right: 10px;
+}
+@media (max-width: 600px) {
+  #book {
+    width: 100%;
+    height: 100vh;
+  }
+  .nav-btn {
+    padding: 5px 10px;
+    font-size: 16px;
+  }
+}
