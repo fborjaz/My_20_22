@@ -1,87 +1,185 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0e6e6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+   font-family: 'Dancing Script', cursive; /* Fuente manuscrita */
+   margin: 0;
+   padding: 0;
+   background-color: #f0e6e6; /* Fondo suave */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   overflow: hidden;
 }
+
 #book {
-  width: 90%;
-  max-width: 600px;
-  height: 80vh;
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  position: relative;
+   width: 90%;
+   max-width: 600px;
+   height: 80vh;
+   background-color: #fff; /* Blanco */
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   overflow: hidden;
+   position: relative;
+   border-radius: 10px; /* Bordes redondeados */
 }
+
 .page {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.5s;
-  padding: 20px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   transition: transform 0.5s ease-in-out; /* Transición más suave */
+   padding: 20px;
+   box-sizing: border-box;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
 }
+
 #cover {
-  background-color: #ffb6c1;
-  color: white;
+   background-color: #ffb6c1; /* Rosa suave */
+   color: #fff;
 }
+
 #cover h1 {
-  font-size: 2em;
-  margin-bottom: 20px;
+   font-size: 2.5em;
+   margin-bottom: 20px;
+   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
+
 #timeline {
-  overflow-y: auto;
-  padding: 20px;
-  transform: translateX(100%);
+   overflow-y: auto;
+   padding: 20px;
+   transform: translateX(100%);
+   background-color: #f8f0f5; /* Rosa claro */
 }
+
 .timeline-item {
-  margin-bottom: 30px;
-  border-left: 2px solid #ffb6c1;
-  padding-left: 20px;
-  position: relative;
+   margin-bottom: 30px;
+   border-left: 4px solid #ffb6c1; /* Línea más gruesa */
+   padding-left: 20px;
+   position: relative;
 }
+
 .date {
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #ffb6c1;
+   font-weight: bold;
+   margin-bottom: 10px;
+   color: #ffb6c1;
 }
+
 .content {
-  background-color: #fff0f5;
-  padding: 15px;
-  border-radius: 5px;
+   background-color: #fff0f5;
+   padding: 15px;
+   border-radius: 5px;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 .nav-btn {
-  position: fixed;
-  top: 50%;
-  background-color: #ffb6c1;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  font-size: 18px;
+   position: fixed;
+   top: 50%;
+   background-color: #ffb6c1;
+   color: #fff;
+   border: none;
+   padding: 10px 15px;
+   cursor: pointer;
+   font-size: 18px;
+   border-radius: 5px;
+   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
 #prevBtn {
-  left: 10px;
+   left: 10px;
 }
+
 #nextBtn {
-  right: 10px;
+   right: 10px;
 }
+
+/* Estilos para corazones */
+.heart-container {
+   position: absolute;
+   bottom: 20px;
+   right: 20px;
+}
+
+.heart {
+   width: 20px;
+   height: 20px;
+   background-color: #ffb6c1;
+   border-radius: 50%;
+   position: relative;
+   transform: rotate(45deg);
+   animation: heartBeat 1s infinite;
+}
+
+.heart:before,
+.heart:after {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: inherit;
+   border-radius: 50%;
+}
+
+.heart:before {
+   transform: translate(-50%, -50%);
+}
+
+.heart:after {
+   transform: translate(50%, 50%);
+}
+
+@keyframes heartBeat {
+   0% {
+       transform: rotate(45deg);
+   }
+   50% {
+       transform: rotate(45deg) scale(1.1);
+   }
+   100% {
+       transform: rotate(45deg);
+   }
+}
+
+/* Estilos para el marco de la foto */
+.photo-frame {
+   position: relative;
+   width: 250px;
+   height: 250px;
+   overflow: hidden;
+   border: 5px solid #ffb6c1;
+   border-radius: 10px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+   margin-bottom: 20px;
+}
+
+.photo-frame img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover; 
+}
+
+.photo-frame::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: radial-gradient(circle, transparent 80%, #ffb6c1 100%);
+   opacity: 0.7;
+   z-index: 1;
+}
+
 @media (max-width: 600px) {
-  #book {
-    width: 100%;
-    height: 100vh;
-  }
-  .nav-btn {
-    padding: 5px 10px;
-    font-size: 16px;
-  }
+   #book {
+       width: 100%;
+       height: 100vh;
+   }
+   .nav-btn {
+       padding: 5px 10px;
+       font-size: 16px;
+   }
 }
